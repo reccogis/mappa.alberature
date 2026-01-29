@@ -40,7 +40,7 @@
         <script src="js/tailDT.js"></script>
 <script src="js/nouislider.min.js"></script>
 <script src="js/wNumb.js"></script>
-        <script src="data/Alberi_1.js"></script>
+        <script src="data/Alberi_2.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -59,7 +59,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:27, minZoom:1
-        }).fitBounds([[44.34439044783006,9.109609007417584],[44.38475820432007,9.187180301955399]]);
+        }).fitBounds([[44.357925683404495,9.132266204815181],[44.374456304292345,9.154731396945948]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -142,10 +142,23 @@
             map.setMaxBounds(map.getBounds());
             map.setMinZoom(map.getZoom());
         }
-        map.createPane('pane_GoogleSatellite_0');
-        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
-        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleSatellite_0',
+        map.createPane('pane_OSMStandard_0');
+        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OSMStandard_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 1,
+            maxZoom: 27,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        map.createPane('pane_GoogleSatellite_1');
+        map.getPane('pane_GoogleSatellite_1').style.zIndex = 401;
+        var layer_GoogleSatellite_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_1',
             opacity: 1.0,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
@@ -153,9 +166,9 @@
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_GoogleSatellite_0;
-        map.addLayer(layer_GoogleSatellite_0);
-        function pop_Alberi_1(feature, layer) {
+        layer_GoogleSatellite_1;
+        map.addLayer(layer_GoogleSatellite_1);
+        function pop_Alberi_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -179,11 +192,11 @@
                         <td>' + (feature.properties['Tassonomia'] !== null ? autolinker.link(String(feature.properties['Tassonomia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Numero</th>\
-                        <td>' + (feature.properties['Numero'] !== null ? autolinker.link(String(feature.properties['Numero']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Manutenzione '] !== null ? autolinker.link(String(feature.properties['Manutenzione ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Manutenzione '] !== null ? autolinker.link(String(feature.properties['Manutenzione ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Numero</th>\
+                        <td>' + (feature.properties['Numero'] !== null ? autolinker.link(String(feature.properties['Numero']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -193,9 +206,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Alberi_1_0() {
+        function style_Alberi_2_0() {
             return {
-                pane: 'pane_Alberi_1',
+                pane: 'pane_Alberi_2',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(61,128,53,1.0)',
@@ -209,29 +222,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Alberi_1');
-        map.getPane('pane_Alberi_1').style.zIndex = 401;
-        map.getPane('pane_Alberi_1').style['mix-blend-mode'] = 'normal';
-        var layer_Alberi_1 = new L.geoJson(json_Alberi_1, {
+        map.createPane('pane_Alberi_2');
+        map.getPane('pane_Alberi_2').style.zIndex = 402;
+        map.getPane('pane_Alberi_2').style['mix-blend-mode'] = 'normal';
+        var layer_Alberi_2 = new L.geoJson(json_Alberi_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Alberi_1',
-            layerName: 'layer_Alberi_1',
-            pane: 'pane_Alberi_1',
-            onEachFeature: pop_Alberi_1,
+            dataVar: 'json_Alberi_2',
+            layerName: 'layer_Alberi_2',
+            pane: 'pane_Alberi_2',
+            onEachFeature: pop_Alberi_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Alberi_1_0(feature));
+                return L.circleMarker(latlng, style_Alberi_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Alberi_1);
-        map.addLayer(layer_Alberi_1);
+        bounds_group.addLayer(layer_Alberi_2);
+        map.addLayer(layer_Alberi_2);
         var overlaysTree = [
-            {label: '<img src="legend/Alberi_1.png" /> Alberi', layer: layer_Alberi_1},
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
+            {label: '<img src="legend/Alberi_2.png" /> Alberi', layer: layer_Alberi_2},
+            {label: "Google Satellite", layer: layer_GoogleSatellite_1, radioGroup: 'bm' },
+            {label: "OSM Standard", layer: layer_OSMStandard_0, radioGroup: 'bm' },]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -294,12 +308,12 @@
         });       
         setBounds();
         var i = 0;
-        layer_Alberi_1.eachLayer(function(layer) {
+        layer_Alberi_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_1'});
+            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -325,7 +339,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"Ambito": "str","Tassonomia": "str"};
+        var Filters = {"Ambito": "str","Tassonomia": "str","Numero": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -413,12 +427,12 @@
           this[lyr["options"]["layerName"]].clearLayers();
           this[lyr["options"]["layerName"]].addData(features);
         var i = 0;
-        layer_Alberi_1.eachLayer(function(layer) {
+        layer_Alberi_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_1'});
+            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -452,6 +466,8 @@
             Ambito_options_str  += '<option value="PIAZZALE RICINA">PIAZZALE RICINA</option>';
             Ambito_options_str  += '<option value="PUNTA SANT&apos;ANNA">PUNTA SANT&apos;ANNA</option>';
             Ambito_options_str  += '<option value="SAN ROCCO">SAN ROCCO</option>';
+            Ambito_options_str  += '<option value="SCUOLA VIA G. MARCON">SCUOLA VIA G. MARCON</option>';
+            Ambito_options_str  += '<option value="SCUOLA VIA G. MARCONI">SCUOLA VIA G. MARCONI</option>';
             Ambito_options_str  += '<option value="VIA ALLA STAZIONE">VIA ALLA STAZIONE</option>';
             Ambito_options_str  += '<option value="VIA BIAGIO ASSERETO">VIA BIAGIO ASSERETO</option>';
             Ambito_options_str  += '<option value="VIA DEI FIESCHI">VIA DEI FIESCHI</option>';
@@ -461,6 +477,8 @@
             Ambito_options_str  += '<option value="VIA IPPOLITO D&apos;ASTE">VIA IPPOLITO D&apos;ASTE</option>';
             Ambito_options_str  += '<option value="VIA MILANO">VIA MILANO</option>';
             Ambito_options_str  += '<option value="VIA PISA">VIA PISA</option>';
+            Ambito_options_str  += '<option value="VIA POLANESI">VIA POLANESI</option>';
+            Ambito_options_str  += '<option value="VIA POLANESI ">VIA POLANESI </option>';
             Ambito_options_str  += '<option value="VIA QUATTRO NOVEMBRE">VIA QUATTRO NOVEMBRE</option>';
             Ambito_options_str  += '<option value="VIA ROMA">VIA ROMA</option>';
             Ambito_options_str  += '<option value="VIA SALVO D&apos;ACQUISTO">VIA SALVO D&apos;ACQUISTO</option>';
@@ -496,6 +514,8 @@
             sel_Tassonomia.id = "sel_Tassonomia";
             var Tassonomia_options_str = "<option value='' unselected></option>";
             sel_Tassonomia.onchange = function(){filterFunc()};
+            Tassonomia_options_str  += '<option value="NULL">NULL</option>';
+            Tassonomia_options_str  += '<option value="	TILIA PLATYPHYLLOS">	TILIA PLATYPHYLLOS</option>';
             Tassonomia_options_str  += '<option value="ACACIA DEALBATA">ACACIA DEALBATA</option>';
             Tassonomia_options_str  += '<option value="AESCULUS HIPPOCASTANUM">AESCULUS HIPPOCASTANUM</option>';
             Tassonomia_options_str  += '<option value="CATALPA BIGNONIOIDES">CATALPA BIGNONIOIDES</option>';
@@ -536,15 +556,483 @@
                 filterFunc();
             };
             div_Tassonomia.appendChild(reset_Tassonomia);
-        resetLabels([layer_Alberi_1]);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Numero = document.createElement('div');
+            div_Numero.id = "div_Numero";
+            div_Numero.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Numero);
+            sel_Numero = document.createElement('select');
+            sel_Numero.multiple = true;
+            sel_Numero.size = 10;
+            sel_Numero.id = "sel_Numero";
+            var Numero_options_str = "<option value='' unselected></option>";
+            sel_Numero.onchange = function(){filterFunc()};
+            Numero_options_str  += '<option value="0001">0001</option>';
+            Numero_options_str  += '<option value="0002">0002</option>';
+            Numero_options_str  += '<option value="0003">0003</option>';
+            Numero_options_str  += '<option value="0004">0004</option>';
+            Numero_options_str  += '<option value="0005">0005</option>';
+            Numero_options_str  += '<option value="0006">0006</option>';
+            Numero_options_str  += '<option value="0007">0007</option>';
+            Numero_options_str  += '<option value="0008">0008</option>';
+            Numero_options_str  += '<option value="0009">0009</option>';
+            Numero_options_str  += '<option value="0010">0010</option>';
+            Numero_options_str  += '<option value="0011">0011</option>';
+            Numero_options_str  += '<option value="0012">0012</option>';
+            Numero_options_str  += '<option value="0013">0013</option>';
+            Numero_options_str  += '<option value="0014">0014</option>';
+            Numero_options_str  += '<option value="0015">0015</option>';
+            Numero_options_str  += '<option value="0016">0016</option>';
+            Numero_options_str  += '<option value="0017">0017</option>';
+            Numero_options_str  += '<option value="0018">0018</option>';
+            Numero_options_str  += '<option value="0019">0019</option>';
+            Numero_options_str  += '<option value="0020">0020</option>';
+            Numero_options_str  += '<option value="0021">0021</option>';
+            Numero_options_str  += '<option value="0022">0022</option>';
+            Numero_options_str  += '<option value="0023">0023</option>';
+            Numero_options_str  += '<option value="0024">0024</option>';
+            Numero_options_str  += '<option value="0025">0025</option>';
+            Numero_options_str  += '<option value="0026">0026</option>';
+            Numero_options_str  += '<option value="0027">0027</option>';
+            Numero_options_str  += '<option value="0028">0028</option>';
+            Numero_options_str  += '<option value="0029">0029</option>';
+            Numero_options_str  += '<option value="0030">0030</option>';
+            Numero_options_str  += '<option value="0031">0031</option>';
+            Numero_options_str  += '<option value="0032">0032</option>';
+            Numero_options_str  += '<option value="0033">0033</option>';
+            Numero_options_str  += '<option value="0034">0034</option>';
+            Numero_options_str  += '<option value="0035">0035</option>';
+            Numero_options_str  += '<option value="0036">0036</option>';
+            Numero_options_str  += '<option value="0037">0037</option>';
+            Numero_options_str  += '<option value="0038">0038</option>';
+            Numero_options_str  += '<option value="0039">0039</option>';
+            Numero_options_str  += '<option value="0040">0040</option>';
+            Numero_options_str  += '<option value="0041">0041</option>';
+            Numero_options_str  += '<option value="0042">0042</option>';
+            Numero_options_str  += '<option value="0043">0043</option>';
+            Numero_options_str  += '<option value="0044">0044</option>';
+            Numero_options_str  += '<option value="0045">0045</option>';
+            Numero_options_str  += '<option value="0046">0046</option>';
+            Numero_options_str  += '<option value="0047">0047</option>';
+            Numero_options_str  += '<option value="0048">0048</option>';
+            Numero_options_str  += '<option value="0049">0049</option>';
+            Numero_options_str  += '<option value="0050">0050</option>';
+            Numero_options_str  += '<option value="0051">0051</option>';
+            Numero_options_str  += '<option value="0052">0052</option>';
+            Numero_options_str  += '<option value="0053">0053</option>';
+            Numero_options_str  += '<option value="0054">0054</option>';
+            Numero_options_str  += '<option value="0055">0055</option>';
+            Numero_options_str  += '<option value="0056">0056</option>';
+            Numero_options_str  += '<option value="0057">0057</option>';
+            Numero_options_str  += '<option value="0058">0058</option>';
+            Numero_options_str  += '<option value="0059">0059</option>';
+            Numero_options_str  += '<option value="0060">0060</option>';
+            Numero_options_str  += '<option value="0061">0061</option>';
+            Numero_options_str  += '<option value="0062">0062</option>';
+            Numero_options_str  += '<option value="0063">0063</option>';
+            Numero_options_str  += '<option value="0064">0064</option>';
+            Numero_options_str  += '<option value="0065">0065</option>';
+            Numero_options_str  += '<option value="0066">0066</option>';
+            Numero_options_str  += '<option value="0067">0067</option>';
+            Numero_options_str  += '<option value="0068">0068</option>';
+            Numero_options_str  += '<option value="0069">0069</option>';
+            Numero_options_str  += '<option value="0070">0070</option>';
+            Numero_options_str  += '<option value="0071">0071</option>';
+            Numero_options_str  += '<option value="0072">0072</option>';
+            Numero_options_str  += '<option value="0073">0073</option>';
+            Numero_options_str  += '<option value="0074">0074</option>';
+            Numero_options_str  += '<option value="0075">0075</option>';
+            Numero_options_str  += '<option value="0076">0076</option>';
+            Numero_options_str  += '<option value="0077">0077</option>';
+            Numero_options_str  += '<option value="0078">0078</option>';
+            Numero_options_str  += '<option value="0079">0079</option>';
+            Numero_options_str  += '<option value="0080">0080</option>';
+            Numero_options_str  += '<option value="0081">0081</option>';
+            Numero_options_str  += '<option value="0082">0082</option>';
+            Numero_options_str  += '<option value="0083">0083</option>';
+            Numero_options_str  += '<option value="0084">0084</option>';
+            Numero_options_str  += '<option value="0085">0085</option>';
+            Numero_options_str  += '<option value="0086">0086</option>';
+            Numero_options_str  += '<option value="0087">0087</option>';
+            Numero_options_str  += '<option value="0088">0088</option>';
+            Numero_options_str  += '<option value="0089">0089</option>';
+            Numero_options_str  += '<option value="0090">0090</option>';
+            Numero_options_str  += '<option value="0091">0091</option>';
+            Numero_options_str  += '<option value="0092">0092</option>';
+            Numero_options_str  += '<option value="0093">0093</option>';
+            Numero_options_str  += '<option value="0094">0094</option>';
+            Numero_options_str  += '<option value="0095">0095</option>';
+            Numero_options_str  += '<option value="0096">0096</option>';
+            Numero_options_str  += '<option value="0097">0097</option>';
+            Numero_options_str  += '<option value="0098">0098</option>';
+            Numero_options_str  += '<option value="0099">0099</option>';
+            Numero_options_str  += '<option value="0100">0100</option>';
+            Numero_options_str  += '<option value="0101">0101</option>';
+            Numero_options_str  += '<option value="0102">0102</option>';
+            Numero_options_str  += '<option value="0103">0103</option>';
+            Numero_options_str  += '<option value="0104">0104</option>';
+            Numero_options_str  += '<option value="0105">0105</option>';
+            Numero_options_str  += '<option value="0106">0106</option>';
+            Numero_options_str  += '<option value="0107">0107</option>';
+            Numero_options_str  += '<option value="0108">0108</option>';
+            Numero_options_str  += '<option value="0109">0109</option>';
+            Numero_options_str  += '<option value="0110">0110</option>';
+            Numero_options_str  += '<option value="0111">0111</option>';
+            Numero_options_str  += '<option value="0112">0112</option>';
+            Numero_options_str  += '<option value="0113">0113</option>';
+            Numero_options_str  += '<option value="0114">0114</option>';
+            Numero_options_str  += '<option value="0115">0115</option>';
+            Numero_options_str  += '<option value="0116">0116</option>';
+            Numero_options_str  += '<option value="0117">0117</option>';
+            Numero_options_str  += '<option value="0118">0118</option>';
+            Numero_options_str  += '<option value="0119">0119</option>';
+            Numero_options_str  += '<option value="0120">0120</option>';
+            Numero_options_str  += '<option value="0121">0121</option>';
+            Numero_options_str  += '<option value="0122">0122</option>';
+            Numero_options_str  += '<option value="0123">0123</option>';
+            Numero_options_str  += '<option value="0124">0124</option>';
+            Numero_options_str  += '<option value="0125">0125</option>';
+            Numero_options_str  += '<option value="0126">0126</option>';
+            Numero_options_str  += '<option value="0127">0127</option>';
+            Numero_options_str  += '<option value="0128">0128</option>';
+            Numero_options_str  += '<option value="0129">0129</option>';
+            Numero_options_str  += '<option value="0130">0130</option>';
+            Numero_options_str  += '<option value="0131">0131</option>';
+            Numero_options_str  += '<option value="0132">0132</option>';
+            Numero_options_str  += '<option value="0134">0134</option>';
+            Numero_options_str  += '<option value="0135">0135</option>';
+            Numero_options_str  += '<option value="0136">0136</option>';
+            Numero_options_str  += '<option value="0137">0137</option>';
+            Numero_options_str  += '<option value="0138">0138</option>';
+            Numero_options_str  += '<option value="0139">0139</option>';
+            Numero_options_str  += '<option value="0140">0140</option>';
+            Numero_options_str  += '<option value="0141">0141</option>';
+            Numero_options_str  += '<option value="0142">0142</option>';
+            Numero_options_str  += '<option value="0143">0143</option>';
+            Numero_options_str  += '<option value="0144">0144</option>';
+            Numero_options_str  += '<option value="0145">0145</option>';
+            Numero_options_str  += '<option value="0146">0146</option>';
+            Numero_options_str  += '<option value="0147">0147</option>';
+            Numero_options_str  += '<option value="0148">0148</option>';
+            Numero_options_str  += '<option value="0149">0149</option>';
+            Numero_options_str  += '<option value="0150">0150</option>';
+            Numero_options_str  += '<option value="0151">0151</option>';
+            Numero_options_str  += '<option value="0152">0152</option>';
+            Numero_options_str  += '<option value="0153">0153</option>';
+            Numero_options_str  += '<option value="0154">0154</option>';
+            Numero_options_str  += '<option value="0155">0155</option>';
+            Numero_options_str  += '<option value="0156">0156</option>';
+            Numero_options_str  += '<option value="0157">0157</option>';
+            Numero_options_str  += '<option value="0158">0158</option>';
+            Numero_options_str  += '<option value="0159">0159</option>';
+            Numero_options_str  += '<option value="0160">0160</option>';
+            Numero_options_str  += '<option value="0161">0161</option>';
+            Numero_options_str  += '<option value="0162">0162</option>';
+            Numero_options_str  += '<option value="0163">0163</option>';
+            Numero_options_str  += '<option value="0164">0164</option>';
+            Numero_options_str  += '<option value="0165">0165</option>';
+            Numero_options_str  += '<option value="0166">0166</option>';
+            Numero_options_str  += '<option value="0167">0167</option>';
+            Numero_options_str  += '<option value="0168">0168</option>';
+            Numero_options_str  += '<option value="0169">0169</option>';
+            Numero_options_str  += '<option value="0170">0170</option>';
+            Numero_options_str  += '<option value="0171">0171</option>';
+            Numero_options_str  += '<option value="0172">0172</option>';
+            Numero_options_str  += '<option value="0173">0173</option>';
+            Numero_options_str  += '<option value="0174">0174</option>';
+            Numero_options_str  += '<option value="0175">0175</option>';
+            Numero_options_str  += '<option value="0176">0176</option>';
+            Numero_options_str  += '<option value="0177">0177</option>';
+            Numero_options_str  += '<option value="0178">0178</option>';
+            Numero_options_str  += '<option value="0179">0179</option>';
+            Numero_options_str  += '<option value="0180">0180</option>';
+            Numero_options_str  += '<option value="0181">0181</option>';
+            Numero_options_str  += '<option value="0182">0182</option>';
+            Numero_options_str  += '<option value="0183">0183</option>';
+            Numero_options_str  += '<option value="0184">0184</option>';
+            Numero_options_str  += '<option value="0185">0185</option>';
+            Numero_options_str  += '<option value="0186">0186</option>';
+            Numero_options_str  += '<option value="0187">0187</option>';
+            Numero_options_str  += '<option value="0188">0188</option>';
+            Numero_options_str  += '<option value="0189">0189</option>';
+            Numero_options_str  += '<option value="0190">0190</option>';
+            Numero_options_str  += '<option value="0191">0191</option>';
+            Numero_options_str  += '<option value="0192">0192</option>';
+            Numero_options_str  += '<option value="0193">0193</option>';
+            Numero_options_str  += '<option value="0194">0194</option>';
+            Numero_options_str  += '<option value="0195">0195</option>';
+            Numero_options_str  += '<option value="0196">0196</option>';
+            Numero_options_str  += '<option value="0197">0197</option>';
+            Numero_options_str  += '<option value="0198">0198</option>';
+            Numero_options_str  += '<option value="0199">0199</option>';
+            Numero_options_str  += '<option value="0200">0200</option>';
+            Numero_options_str  += '<option value="0201">0201</option>';
+            Numero_options_str  += '<option value="0202">0202</option>';
+            Numero_options_str  += '<option value="0203">0203</option>';
+            Numero_options_str  += '<option value="0204">0204</option>';
+            Numero_options_str  += '<option value="0205">0205</option>';
+            Numero_options_str  += '<option value="0206">0206</option>';
+            Numero_options_str  += '<option value="0207">0207</option>';
+            Numero_options_str  += '<option value="0208">0208</option>';
+            Numero_options_str  += '<option value="0209">0209</option>';
+            Numero_options_str  += '<option value="0210">0210</option>';
+            Numero_options_str  += '<option value="0211">0211</option>';
+            Numero_options_str  += '<option value="0212">0212</option>';
+            Numero_options_str  += '<option value="0213">0213</option>';
+            Numero_options_str  += '<option value="0214">0214</option>';
+            Numero_options_str  += '<option value="0215">0215</option>';
+            Numero_options_str  += '<option value="0216">0216</option>';
+            Numero_options_str  += '<option value="0217">0217</option>';
+            Numero_options_str  += '<option value="0218">0218</option>';
+            Numero_options_str  += '<option value="0219">0219</option>';
+            Numero_options_str  += '<option value="0220">0220</option>';
+            Numero_options_str  += '<option value="0221">0221</option>';
+            Numero_options_str  += '<option value="0222">0222</option>';
+            Numero_options_str  += '<option value="0223">0223</option>';
+            Numero_options_str  += '<option value="0224">0224</option>';
+            Numero_options_str  += '<option value="0225">0225</option>';
+            Numero_options_str  += '<option value="0226">0226</option>';
+            Numero_options_str  += '<option value="0227">0227</option>';
+            Numero_options_str  += '<option value="0228">0228</option>';
+            Numero_options_str  += '<option value="0229">0229</option>';
+            Numero_options_str  += '<option value="0230">0230</option>';
+            Numero_options_str  += '<option value="0231">0231</option>';
+            Numero_options_str  += '<option value="0232">0232</option>';
+            Numero_options_str  += '<option value="0233">0233</option>';
+            Numero_options_str  += '<option value="0234">0234</option>';
+            Numero_options_str  += '<option value="0235">0235</option>';
+            Numero_options_str  += '<option value="0236">0236</option>';
+            Numero_options_str  += '<option value="0237">0237</option>';
+            Numero_options_str  += '<option value="0238">0238</option>';
+            Numero_options_str  += '<option value="0239">0239</option>';
+            Numero_options_str  += '<option value="0240">0240</option>';
+            Numero_options_str  += '<option value="0241">0241</option>';
+            Numero_options_str  += '<option value="0242">0242</option>';
+            Numero_options_str  += '<option value="0243">0243</option>';
+            Numero_options_str  += '<option value="0244">0244</option>';
+            Numero_options_str  += '<option value="0245">0245</option>';
+            Numero_options_str  += '<option value="0246">0246</option>';
+            Numero_options_str  += '<option value="0247">0247</option>';
+            Numero_options_str  += '<option value="0248">0248</option>';
+            Numero_options_str  += '<option value="0249">0249</option>';
+            Numero_options_str  += '<option value="0250">0250</option>';
+            Numero_options_str  += '<option value="0251">0251</option>';
+            Numero_options_str  += '<option value="0252">0252</option>';
+            Numero_options_str  += '<option value="0253">0253</option>';
+            Numero_options_str  += '<option value="0254">0254</option>';
+            Numero_options_str  += '<option value="0255">0255</option>';
+            Numero_options_str  += '<option value="0256">0256</option>';
+            Numero_options_str  += '<option value="0257">0257</option>';
+            Numero_options_str  += '<option value="0258">0258</option>';
+            Numero_options_str  += '<option value="0259">0259</option>';
+            Numero_options_str  += '<option value="0260">0260</option>';
+            Numero_options_str  += '<option value="0261">0261</option>';
+            Numero_options_str  += '<option value="0262">0262</option>';
+            Numero_options_str  += '<option value="0263">0263</option>';
+            Numero_options_str  += '<option value="0264">0264</option>';
+            Numero_options_str  += '<option value="0265">0265</option>';
+            Numero_options_str  += '<option value="0266">0266</option>';
+            Numero_options_str  += '<option value="0267">0267</option>';
+            Numero_options_str  += '<option value="0268">0268</option>';
+            Numero_options_str  += '<option value="0269">0269</option>';
+            Numero_options_str  += '<option value="0270">0270</option>';
+            Numero_options_str  += '<option value="0271">0271</option>';
+            Numero_options_str  += '<option value="0272">0272</option>';
+            Numero_options_str  += '<option value="0273">0273</option>';
+            Numero_options_str  += '<option value="0274">0274</option>';
+            Numero_options_str  += '<option value="0275">0275</option>';
+            Numero_options_str  += '<option value="0276">0276</option>';
+            Numero_options_str  += '<option value="0277">0277</option>';
+            Numero_options_str  += '<option value="0278">0278</option>';
+            Numero_options_str  += '<option value="0279">0279</option>';
+            Numero_options_str  += '<option value="0280">0280</option>';
+            Numero_options_str  += '<option value="0281">0281</option>';
+            Numero_options_str  += '<option value="0282">0282</option>';
+            Numero_options_str  += '<option value="0283">0283</option>';
+            Numero_options_str  += '<option value="0284">0284</option>';
+            Numero_options_str  += '<option value="0285">0285</option>';
+            Numero_options_str  += '<option value="0286">0286</option>';
+            Numero_options_str  += '<option value="0287">0287</option>';
+            Numero_options_str  += '<option value="0288">0288</option>';
+            Numero_options_str  += '<option value="0289">0289</option>';
+            Numero_options_str  += '<option value="0290">0290</option>';
+            Numero_options_str  += '<option value="0291">0291</option>';
+            Numero_options_str  += '<option value="0292">0292</option>';
+            Numero_options_str  += '<option value="0293">0293</option>';
+            Numero_options_str  += '<option value="0294">0294</option>';
+            Numero_options_str  += '<option value="0295">0295</option>';
+            Numero_options_str  += '<option value="0296">0296</option>';
+            Numero_options_str  += '<option value="0297">0297</option>';
+            Numero_options_str  += '<option value="0298">0298</option>';
+            Numero_options_str  += '<option value="0299">0299</option>';
+            Numero_options_str  += '<option value="0300">0300</option>';
+            Numero_options_str  += '<option value="0301">0301</option>';
+            Numero_options_str  += '<option value="0303">0303</option>';
+            Numero_options_str  += '<option value="0304">0304</option>';
+            Numero_options_str  += '<option value="0305">0305</option>';
+            Numero_options_str  += '<option value="0306">0306</option>';
+            Numero_options_str  += '<option value="0307">0307</option>';
+            Numero_options_str  += '<option value="0308">0308</option>';
+            Numero_options_str  += '<option value="0309">0309</option>';
+            Numero_options_str  += '<option value="0310">0310</option>';
+            Numero_options_str  += '<option value="0311">0311</option>';
+            Numero_options_str  += '<option value="0312">0312</option>';
+            Numero_options_str  += '<option value="0313">0313</option>';
+            Numero_options_str  += '<option value="0314">0314</option>';
+            Numero_options_str  += '<option value="0315">0315</option>';
+            Numero_options_str  += '<option value="0316">0316</option>';
+            Numero_options_str  += '<option value="0317">0317</option>';
+            Numero_options_str  += '<option value="0318">0318</option>';
+            Numero_options_str  += '<option value="0319">0319</option>';
+            Numero_options_str  += '<option value="0320">0320</option>';
+            Numero_options_str  += '<option value="0321">0321</option>';
+            Numero_options_str  += '<option value="0322">0322</option>';
+            Numero_options_str  += '<option value="0323">0323</option>';
+            Numero_options_str  += '<option value="0324">0324</option>';
+            Numero_options_str  += '<option value="0325">0325</option>';
+            Numero_options_str  += '<option value="0326">0326</option>';
+            Numero_options_str  += '<option value="0327">0327</option>';
+            Numero_options_str  += '<option value="0328">0328</option>';
+            Numero_options_str  += '<option value="0329">0329</option>';
+            Numero_options_str  += '<option value="0330">0330</option>';
+            Numero_options_str  += '<option value="0331">0331</option>';
+            Numero_options_str  += '<option value="0332">0332</option>';
+            Numero_options_str  += '<option value="0333">0333</option>';
+            Numero_options_str  += '<option value="0334">0334</option>';
+            Numero_options_str  += '<option value="0335">0335</option>';
+            Numero_options_str  += '<option value="0336">0336</option>';
+            Numero_options_str  += '<option value="0337">0337</option>';
+            Numero_options_str  += '<option value="0338">0338</option>';
+            Numero_options_str  += '<option value="0339">0339</option>';
+            Numero_options_str  += '<option value="0340">0340</option>';
+            Numero_options_str  += '<option value="0341">0341</option>';
+            Numero_options_str  += '<option value="0342">0342</option>';
+            Numero_options_str  += '<option value="0343">0343</option>';
+            Numero_options_str  += '<option value="0344">0344</option>';
+            Numero_options_str  += '<option value="0345">0345</option>';
+            Numero_options_str  += '<option value="0346">0346</option>';
+            Numero_options_str  += '<option value="0347">0347</option>';
+            Numero_options_str  += '<option value="0348">0348</option>';
+            Numero_options_str  += '<option value="0349">0349</option>';
+            Numero_options_str  += '<option value="0350">0350</option>';
+            Numero_options_str  += '<option value="0351">0351</option>';
+            Numero_options_str  += '<option value="0352">0352</option>';
+            Numero_options_str  += '<option value="0353">0353</option>';
+            Numero_options_str  += '<option value="0354">0354</option>';
+            Numero_options_str  += '<option value="0355">0355</option>';
+            Numero_options_str  += '<option value="0356">0356</option>';
+            Numero_options_str  += '<option value="0357">0357</option>';
+            Numero_options_str  += '<option value="0358">0358</option>';
+            Numero_options_str  += '<option value="0359">0359</option>';
+            Numero_options_str  += '<option value="0360">0360</option>';
+            Numero_options_str  += '<option value="0361">0361</option>';
+            Numero_options_str  += '<option value="0362">0362</option>';
+            Numero_options_str  += '<option value="0363">0363</option>';
+            Numero_options_str  += '<option value="0364">0364</option>';
+            Numero_options_str  += '<option value="0365">0365</option>';
+            Numero_options_str  += '<option value="0366">0366</option>';
+            Numero_options_str  += '<option value="0367">0367</option>';
+            Numero_options_str  += '<option value="0368">0368</option>';
+            Numero_options_str  += '<option value="0369">0369</option>';
+            Numero_options_str  += '<option value="0370">0370</option>';
+            Numero_options_str  += '<option value="0371">0371</option>';
+            Numero_options_str  += '<option value="0372">0372</option>';
+            Numero_options_str  += '<option value="0373">0373</option>';
+            Numero_options_str  += '<option value="0374">0374</option>';
+            Numero_options_str  += '<option value="0375">0375</option>';
+            Numero_options_str  += '<option value="0376">0376</option>';
+            Numero_options_str  += '<option value="0377">0377</option>';
+            Numero_options_str  += '<option value="0378">0378</option>';
+            Numero_options_str  += '<option value="0379">0379</option>';
+            Numero_options_str  += '<option value="0380">0380</option>';
+            Numero_options_str  += '<option value="0381">0381</option>';
+            Numero_options_str  += '<option value="0382">0382</option>';
+            Numero_options_str  += '<option value="0383">0383</option>';
+            Numero_options_str  += '<option value="0384">0384</option>';
+            Numero_options_str  += '<option value="0385">0385</option>';
+            Numero_options_str  += '<option value="0386">0386</option>';
+            Numero_options_str  += '<option value="0387">0387</option>';
+            Numero_options_str  += '<option value="0388">0388</option>';
+            Numero_options_str  += '<option value="0389">0389</option>';
+            Numero_options_str  += '<option value="0390">0390</option>';
+            Numero_options_str  += '<option value="0391">0391</option>';
+            Numero_options_str  += '<option value="0392">0392</option>';
+            Numero_options_str  += '<option value="0393">0393</option>';
+            Numero_options_str  += '<option value="0394">0394</option>';
+            Numero_options_str  += '<option value="0395">0395</option>';
+            Numero_options_str  += '<option value="0396">0396</option>';
+            Numero_options_str  += '<option value="0397">0397</option>';
+            Numero_options_str  += '<option value="0398">0398</option>';
+            Numero_options_str  += '<option value="0399">0399</option>';
+            Numero_options_str  += '<option value="0400">0400</option>';
+            Numero_options_str  += '<option value="0401">0401</option>';
+            Numero_options_str  += '<option value="0402">0402</option>';
+            Numero_options_str  += '<option value="0403">0403</option>';
+            Numero_options_str  += '<option value="0404">0404</option>';
+            Numero_options_str  += '<option value="0405">0405</option>';
+            Numero_options_str  += '<option value="0406">0406</option>';
+            Numero_options_str  += '<option value="0407">0407</option>';
+            Numero_options_str  += '<option value="0408">0408</option>';
+            Numero_options_str  += '<option value="0409">0409</option>';
+            Numero_options_str  += '<option value="0410">0410</option>';
+            Numero_options_str  += '<option value="0411">0411</option>';
+            Numero_options_str  += '<option value="0412">0412</option>';
+            Numero_options_str  += '<option value="0413">0413</option>';
+            Numero_options_str  += '<option value="0414">0414</option>';
+            Numero_options_str  += '<option value="0415">0415</option>';
+            Numero_options_str  += '<option value="0416">0416</option>';
+            Numero_options_str  += '<option value="0417">0417</option>';
+            Numero_options_str  += '<option value="0418">0418</option>';
+            Numero_options_str  += '<option value="0419">0419</option>';
+            Numero_options_str  += '<option value="0420">0420</option>';
+            Numero_options_str  += '<option value="0421">0421</option>';
+            Numero_options_str  += '<option value="0422">0422</option>';
+            Numero_options_str  += '<option value="0423">0423</option>';
+            Numero_options_str  += '<option value="0424">0424</option>';
+            Numero_options_str  += '<option value="0425">0425</option>';
+            Numero_options_str  += '<option value="0426">0426</option>';
+            Numero_options_str  += '<option value="0427">0427</option>';
+            Numero_options_str  += '<option value="0428">0428</option>';
+            Numero_options_str  += '<option value="0429">0429</option>';
+            Numero_options_str  += '<option value="0430">0430</option>';
+            Numero_options_str  += '<option value="0431">0431</option>';
+            Numero_options_str  += '<option value="0432">0432</option>';
+            Numero_options_str  += '<option value="0433">0433</option>';
+            Numero_options_str  += '<option value="0434">0434</option>';
+            Numero_options_str  += '<option value="0435">0435</option>';
+            Numero_options_str  += '<option value="0436">0436</option>';
+            Numero_options_str  += '<option value="0437">0437</option>';
+            Numero_options_str  += '<option value="0438">0438</option>';
+            Numero_options_str  += '<option value="0439">0439</option>';
+            Numero_options_str  += '<option value="0440">0440</option>';
+            Numero_options_str  += '<option value="0441">0441</option>';
+            sel_Numero.innerHTML = Numero_options_str;
+            div_Numero.appendChild(sel_Numero);
+            var lab_Numero = document.createElement('div');
+            lab_Numero.innerHTML = 'Numero';
+            lab_Numero.className = 'filterlabel';
+            div_Numero.appendChild(lab_Numero);
+            var reset_Numero = document.createElement('div');
+            reset_Numero.innerHTML = 'clear filter';
+            reset_Numero.className = 'filterlabel';
+            reset_Numero.onclick = function() {
+                var options = document.getElementById("sel_Numero").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Numero.appendChild(reset_Numero);
+        resetLabels([layer_Alberi_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_Alberi_1]);
+            resetLabels([layer_Alberi_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Alberi_1]);
+            resetLabels([layer_Alberi_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Alberi_1]);
+            resetLabels([layer_Alberi_2]);
         });
         </script>        
     </body>
