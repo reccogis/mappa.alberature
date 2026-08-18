@@ -10,8 +10,6 @@
         <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/filter.css">
-<link rel="stylesheet" href="css/nouislider.min.css">
         <link rel="stylesheet" href="css/leaflet.photon.css">
         <style>
         html, body, #map {
@@ -37,11 +35,8 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
-        <script src="js/tailDT.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/wNumb.js"></script>
-        <script src="data/confinicomuneRECCO_3.js"></script>
-        <script src="data/Alberi_4.js"></script>
+        <script src="data/confinicomuneRECCO_1.js"></script>
+        <script src="data/Alberi_2.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -60,7 +55,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:27, minZoom:1
-        }).fitBounds([[44.34656215606908,9.117970190292684],[44.390456801556695,9.180714019251845]]);
+        }).fitBounds([[44.31907267872445,9.090125582225417],[44.40686196969834,9.21561324014183]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -167,33 +162,7 @@
         });
         layer_Esriortofoto_0;
         map.addLayer(layer_Esriortofoto_0);
-        map.createPane('pane_ESRITransportation_1');
-        map.getPane('pane_ESRITransportation_1').style.zIndex = 401;
-        var layer_ESRITransportation_1 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_ESRITransportation_1',
-            opacity: 1.0,
-            attribution: '',
-            minZoom: 1,
-            maxZoom: 27,
-            minNativeZoom: 0,
-            maxNativeZoom: 20
-        });
-        layer_ESRITransportation_1;
-        map.addLayer(layer_ESRITransportation_1);
-        map.createPane('pane_OSMStandard_2');
-        map.getPane('pane_OSMStandard_2').style.zIndex = 402;
-        var layer_OSMStandard_2 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            pane: 'pane_OSMStandard_2',
-            opacity: 1.0,
-            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
-            minZoom: 1,
-            maxZoom: 27,
-            minNativeZoom: 0,
-            maxNativeZoom: 19
-        });
-        layer_OSMStandard_2;
-        map.addLayer(layer_OSMStandard_2);
-        function pop_confinicomuneRECCO_3(feature, layer) {
+        function pop_confinicomuneRECCO_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -206,9 +175,9 @@
             });
         }
 
-        function style_confinicomuneRECCO_3_0() {
+        function style_confinicomuneRECCO_1_0() {
             return {
-                pane: 'pane_confinicomuneRECCO_3',
+                pane: 'pane_confinicomuneRECCO_1',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -219,21 +188,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_confinicomuneRECCO_3');
-        map.getPane('pane_confinicomuneRECCO_3').style.zIndex = 403;
-        map.getPane('pane_confinicomuneRECCO_3').style['mix-blend-mode'] = 'normal';
-        var layer_confinicomuneRECCO_3 = new L.geoJson(json_confinicomuneRECCO_3, {
+        map.createPane('pane_confinicomuneRECCO_1');
+        map.getPane('pane_confinicomuneRECCO_1').style.zIndex = 401;
+        map.getPane('pane_confinicomuneRECCO_1').style['mix-blend-mode'] = 'normal';
+        var layer_confinicomuneRECCO_1 = new L.geoJson(json_confinicomuneRECCO_1, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_confinicomuneRECCO_3',
-            layerName: 'layer_confinicomuneRECCO_3',
-            pane: 'pane_confinicomuneRECCO_3',
-            onEachFeature: pop_confinicomuneRECCO_3,
-            style: style_confinicomuneRECCO_3_0,
+            dataVar: 'json_confinicomuneRECCO_1',
+            layerName: 'layer_confinicomuneRECCO_1',
+            pane: 'pane_confinicomuneRECCO_1',
+            onEachFeature: pop_confinicomuneRECCO_1,
+            style: style_confinicomuneRECCO_1_0,
         });
-        bounds_group.addLayer(layer_confinicomuneRECCO_3);
-        map.addLayer(layer_confinicomuneRECCO_3);
-        function pop_Alberi_4(feature, layer) {
+        bounds_group.addLayer(layer_confinicomuneRECCO_1);
+        map.addLayer(layer_confinicomuneRECCO_1);
+        function pop_Alberi_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -257,8 +226,7 @@
                         <td>' + (feature.properties['Tassonomia'] !== null ? autolinker.link(String(feature.properties['Tassonomia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Numero_Ok</th>\
-                        <td>' + (feature.properties['Numero_Ok'] !== null ? autolinker.link(String(feature.properties['Numero_Ok']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Num'] !== null ? autolinker.link(String(feature.properties['Num']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -268,9 +236,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Alberi_4_0() {
+        function style_Alberi_2_0() {
             return {
-                pane: 'pane_Alberi_4',
+                pane: 'pane_Alberi_2',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(61,128,53,1.0)',
@@ -284,31 +252,29 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Alberi_4');
-        map.getPane('pane_Alberi_4').style.zIndex = 404;
-        map.getPane('pane_Alberi_4').style['mix-blend-mode'] = 'normal';
-        var layer_Alberi_4 = new L.geoJson(json_Alberi_4, {
+        map.createPane('pane_Alberi_2');
+        map.getPane('pane_Alberi_2').style.zIndex = 402;
+        map.getPane('pane_Alberi_2').style['mix-blend-mode'] = 'normal';
+        var layer_Alberi_2 = new L.geoJson(json_Alberi_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Alberi_4',
-            layerName: 'layer_Alberi_4',
-            pane: 'pane_Alberi_4',
-            onEachFeature: pop_Alberi_4,
+            dataVar: 'json_Alberi_2',
+            layerName: 'layer_Alberi_2',
+            pane: 'pane_Alberi_2',
+            onEachFeature: pop_Alberi_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Alberi_4_0(feature));
+                return L.circleMarker(latlng, style_Alberi_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Alberi_4);
-        map.addLayer(layer_Alberi_4);
+        bounds_group.addLayer(layer_Alberi_2);
+        map.addLayer(layer_Alberi_2);
         var overlaysTree = [
-            {label: '<img src="legend/Alberi_4.png" /> Alberi', layer: layer_Alberi_4},
-            {label: '<img src="legend/confinicomuneRECCO_3.png" /> confini comune RECCO', layer: layer_confinicomuneRECCO_3},
-            {label: "OSM Standard", layer: layer_OSMStandard_2},
-            {label: "ESRI Transportation", layer: layer_ESRITransportation_1},
+            {label: '<img src="legend/Alberi_2.png" /> Alberi', layer: layer_Alberi_2},
+            {label: '<img src="legend/confinicomuneRECCO_1.png" /> confini comune RECCO', layer: layer_confinicomuneRECCO_1},
             {label: "Esri ortofoto", layer: layer_Esriortofoto_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -372,323 +338,27 @@
         });       
         setBounds();
         var i = 0;
-        layer_Alberi_4.eachLayer(function(layer) {
+        layer_Alberi_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Numero_Ok'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero_Ok']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_4'});
+            layer.bindTooltip((layer.feature.properties['Numero_Ok'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero_Ok']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        var mapDiv = document.getElementById('map');
-        var row = document.createElement('div');
-        row.className="row";
-        row.id="all";
-        row.style.height = "100%";
-        var col1 = document.createElement('div');
-        col1.className="col9";
-        col1.id = "mapWindow";
-        col1.style.height = "99%";
-        col1.style.width = "80%";
-        col1.style.display = "inline-block";
-        var col2 = document.createElement('div');
-        col2.className="col3";
-        col2.id = "menu";
-        col2.style.display = "inline-block";
-        mapDiv.parentNode.insertBefore(row, mapDiv);
-        document.getElementById("all").appendChild(col1);
-        document.getElementById("all").appendChild(col2);
-        col1.appendChild(mapDiv)
-        var Filters = {"Ambito": "str","Tassonomia": "str"};
-        function filterFunc() {
-          map.eachLayer(function(lyr){
-          if ("options" in lyr && "dataVar" in lyr["options"]){
-            features = this[lyr["options"]["dataVar"]].features.slice(0);
-            try{
-              for (key in Filters){
-                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
-                if (Filters[key] == "str" || Filters[key] == "bool"){
-                  var selection = [];
-                  var options = document.getElementById("sel_" + keyS).options
-                  for (var i=0; i < options.length; i++) {
-                    if (options[i].selected) selection.push(options[i].value);
-                  }
-                    try{
-                      if (key in features[0].properties){
-                        for (i = features.length - 1;
-                          i >= 0; --i){
-                          if (selection.indexOf(
-                          features[i].properties[key])<0
-                          && selection.length>0) {
-                          features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                  }
-                }
-                if (Filters[key] == "int"){
-                  sliderVals =  document.getElementById(
-                    "div_" + keyS).noUiSlider.get();
-                  try{
-                    if (key in features[0].properties){
-                    for (i = features.length - 1; i >= 0; --i){
-                      if (parseInt(features[i].properties[key])
-                          < sliderVals[0]
-                          || parseInt(features[i].properties[key])
-                          > sliderVals[1]){
-                            features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                    }
-                  }
-                if (Filters[key] == "real"){
-                  sliderVals =  document.getElementById(
-                    "div_" + keyS).noUiSlider.get();
-                  try{
-                    if (key in features[0].properties){
-                    for (i = features.length - 1; i >= 0; --i){
-                      if (features[i].properties[key]
-                          < sliderVals[0]
-                          || features[i].properties[key]
-                          > sliderVals[1]){
-                            features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                    }
-                  }
-                if (Filters[key] == "date"
-                  || Filters[key] == "datetime"
-                  || Filters[key] == "time"){
-                  try{
-                    if (key in features[0].properties){
-                      HTMLkey = key.replace(/[&\\/\\#,+()$~%.'":*?<>{} ]/g, '');
-                      startdate = document.getElementById("dat_" +
-                        HTMLkey + "_date1").value.replace(" ", "T");
-                      enddate = document.getElementById("dat_" +
-                        HTMLkey + "_date2").value.replace(" ", "T");
-                      for (i = features.length - 1; i >= 0; --i){
-                        if (features[i].properties[key] < startdate
-                          || features[i].properties[key] > enddate){
-                          features.splice(i,1);
-                        }
-                      }
-                    }
-                  } catch(err){
-                  }
-                }
-              }
-            } catch(err){
-            }
-          this[lyr["options"]["layerName"]].clearLayers();
-          this[lyr["options"]["layerName"]].addData(features);
-        var i = 0;
-        layer_Alberi_4.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['Numero_Ok'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero_Ok']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_4'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-          }
-          })
-        }
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Ambito = document.createElement('div');
-            div_Ambito.id = "div_Ambito";
-            div_Ambito.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Ambito);
-            sel_Ambito = document.createElement('select');
-            sel_Ambito.multiple = true;
-            sel_Ambito.size = 10;
-            sel_Ambito.id = "sel_Ambito";
-            var Ambito_options_str = "<option value='' unselected></option>";
-            sel_Ambito.onchange = function(){filterFunc()};
-            Ambito_options_str  += '<option value="BARCA SILOS">BARCA SILOS</option>';
-            Ambito_options_str  += '<option value="CHIESA SUFFRAGIO">CHIESA SUFFRAGIO</option>';
-            Ambito_options_str  += '<option value="CIMITERO CENTRALE">CIMITERO CENTRALE</option>';
-            Ambito_options_str  += '<option value="CIMITERO MEGLI">CIMITERO MEGLI</option>';
-            Ambito_options_str  += '<option value="CIMITERO POLANESI">CIMITERO POLANESI</option>';
-            Ambito_options_str  += '<option value="CORSO G. GARIBALDI">CORSO G. GARIBALDI</option>';
-            Ambito_options_str  += '<option value="LUNGOMARE A. BETTOLO">LUNGOMARE A. BETTOLO</option>';
-            Ambito_options_str  += '<option value="MAGAZZINO COMUNALE">MAGAZZINO COMUNALE</option>';
-            Ambito_options_str  += '<option value="PARCO RIMEMBRANZA">PARCO RIMEMBRANZA</option>';
-            Ambito_options_str  += '<option value="PASSEGGIATA MARE">PASSEGGIATA MARE</option>';
-            Ambito_options_str  += '<option value="PASSEGGIATA PUNTA SANT&apos;ANNA">PASSEGGIATA PUNTA SANT&apos;ANNA</option>';
-            Ambito_options_str  += '<option value="PIAZZA G. MATTEOTTI">PIAZZA G. MATTEOTTI</option>';
-            Ambito_options_str  += '<option value="PIAZZA GASTALDI">PIAZZA GASTALDI</option>';
-            Ambito_options_str  += '<option value="PIAZZA NICOLOSO DA RECCO">PIAZZA NICOLOSO DA RECCO</option>';
-            Ambito_options_str  += '<option value="PIAZZA SAN GIOVANNI BONO">PIAZZA SAN GIOVANNI BONO</option>';
-            Ambito_options_str  += '<option value="PIAZZALE CILE">PIAZZALE CILE</option>';
-            Ambito_options_str  += '<option value="PIAZZALE EUROPA">PIAZZALE EUROPA</option>';
-            Ambito_options_str  += '<option value="PIAZZALE OLIMPIA">PIAZZALE OLIMPIA</option>';
-            Ambito_options_str  += '<option value="PIAZZALE RICINA">PIAZZALE RICINA</option>';
-            Ambito_options_str  += '<option value="PUNTA SANT&apos;ANNA">PUNTA SANT&apos;ANNA</option>';
-            Ambito_options_str  += '<option value="SAN ROCCO">SAN ROCCO</option>';
-            Ambito_options_str  += '<option value="SCALINATA SANTA">SCALINATA SANTA</option>';
-            Ambito_options_str  += '<option value="SCUOLA SAN ROCCO">SCUOLA SAN ROCCO</option>';
-            Ambito_options_str  += '<option value="SCUOLA VIA G. E. MASSSONE">SCUOLA VIA G. E. MASSSONE</option>';
-            Ambito_options_str  += '<option value="SCUOLA VIA G. MARCON">SCUOLA VIA G. MARCON</option>';
-            Ambito_options_str  += '<option value="SCUOLA VIA G. MARCONI">SCUOLA VIA G. MARCONI</option>';
-            Ambito_options_str  += '<option value="SCUOLA VIA MILANO">SCUOLA VIA MILANO</option>';
-            Ambito_options_str  += '<option value="VIA A. BIANCHI">VIA A. BIANCHI</option>';
-            Ambito_options_str  += '<option value="VIA ALLA STAZIONE">VIA ALLA STAZIONE</option>';
-            Ambito_options_str  += '<option value="VIA BIAGIO ASSERETO">VIA BIAGIO ASSERETO</option>';
-            Ambito_options_str  += '<option value="VIA CAVOUR">VIA CAVOUR</option>';
-            Ambito_options_str  += '<option value="VIA DEI FIESCHI">VIA DEI FIESCHI</option>';
-            Ambito_options_str  += '<option value="VIA FILIPPO  DA RECCO">VIA FILIPPO  DA RECCO</option>';
-            Ambito_options_str  += '<option value="VIA FILIPPO DA RECCO">VIA FILIPPO DA RECCO</option>';
-            Ambito_options_str  += '<option value="VIA FIUME">VIA FIUME</option>';
-            Ambito_options_str  += '<option value="VIA G. MARCONI">VIA G. MARCONI</option>';
-            Ambito_options_str  += '<option value="VIA G. SPERONI">VIA G. SPERONI</option>';
-            Ambito_options_str  += '<option value="VIA IPPOLITO D&apos;ASTE">VIA IPPOLITO D&apos;ASTE</option>';
-            Ambito_options_str  += '<option value="VIA IV NOVEMBRE">VIA IV NOVEMBRE</option>';
-            Ambito_options_str  += '<option value="VIA MILANO">VIA MILANO</option>';
-            Ambito_options_str  += '<option value="VIA PISA">VIA PISA</option>';
-            Ambito_options_str  += '<option value="VIA POLANESI">VIA POLANESI</option>';
-            Ambito_options_str  += '<option value="VIA POLANESI ">VIA POLANESI </option>';
-            Ambito_options_str  += '<option value="VIA ROLMA">VIA ROLMA</option>';
-            Ambito_options_str  += '<option value="VIA ROMA">VIA ROMA</option>';
-            Ambito_options_str  += '<option value="VIA SALVO D&apos;ACQUISTO">VIA SALVO D&apos;ACQUISTO</option>';
-            Ambito_options_str  += '<option value="VIA SAN GIOVANNI BATTISTA">VIA SAN GIOVANNI BATTISTA</option>';
-            Ambito_options_str  += '<option value="VIA SOMMAVILLA">VIA SOMMAVILLA</option>';
-            Ambito_options_str  += '<option value="VIA TRIESTE">VIA TRIESTE</option>';
-            Ambito_options_str  += '<option value="VIA TRISTE">VIA TRISTE</option>';
-            Ambito_options_str  += '<option value="VIA VITTORIO VENETO">VIA VITTORIO VENETO</option>';
-            Ambito_options_str  += '<option value="VIA XX SETTEMBRE">VIA XX SETTEMBRE</option>';
-            Ambito_options_str  += '<option value="VIA XXV APRILE">VIA XXV APRILE</option>';
-            sel_Ambito.innerHTML = Ambito_options_str;
-            div_Ambito.appendChild(sel_Ambito);
-            var lab_Ambito = document.createElement('div');
-            lab_Ambito.innerHTML = 'Ambito';
-            lab_Ambito.className = 'filterlabel';
-            div_Ambito.appendChild(lab_Ambito);
-            var reset_Ambito = document.createElement('div');
-            reset_Ambito.innerHTML = 'clear filter';
-            reset_Ambito.className = 'filterlabel';
-            reset_Ambito.onclick = function() {
-                var options = document.getElementById("sel_Ambito").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Ambito.appendChild(reset_Ambito);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Tassonomia = document.createElement('div');
-            div_Tassonomia.id = "div_Tassonomia";
-            div_Tassonomia.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Tassonomia);
-            sel_Tassonomia = document.createElement('select');
-            sel_Tassonomia.multiple = true;
-            sel_Tassonomia.size = 10;
-            sel_Tassonomia.id = "sel_Tassonomia";
-            var Tassonomia_options_str = "<option value='' unselected></option>";
-            sel_Tassonomia.onchange = function(){filterFunc()};
-            Tassonomia_options_str  += '<option value="NULL">NULL</option>';
-            Tassonomia_options_str  += '<option value="ABETE DOUGLAS">ABETE DOUGLAS</option>';
-            Tassonomia_options_str  += '<option value="ABIES">ABIES</option>';
-            Tassonomia_options_str  += '<option value="ACACIA DEALBATA">ACACIA DEALBATA</option>';
-            Tassonomia_options_str  += '<option value="AESCULUS HIPPOCASTANUM">AESCULUS HIPPOCASTANUM</option>';
-            Tassonomia_options_str  += '<option value="ALBIZIA JULIBRISSIN">ALBIZIA JULIBRISSIN</option>';
-            Tassonomia_options_str  += '<option value="CALLISTEMON">CALLISTEMON</option>';
-            Tassonomia_options_str  += '<option value="CATALPA BIGNONIOIDES">CATALPA BIGNONIOIDES</option>';
-            Tassonomia_options_str  += '<option value="CEDRUS ATLANTICA">CEDRUS ATLANTICA</option>';
-            Tassonomia_options_str  += '<option value="CEDRUS LIBANI">CEDRUS LIBANI</option>';
-            Tassonomia_options_str  += '<option value="CEDUS LIBANI">CEDUS LIBANI</option>';
-            Tassonomia_options_str  += '<option value="CELTIS AUSTRALIS">CELTIS AUSTRALIS</option>';
-            Tassonomia_options_str  += '<option value="CERATONIA SILIQUA">CERATONIA SILIQUA</option>';
-            Tassonomia_options_str  += '<option value="CICAS REVOLUTA">CICAS REVOLUTA</option>';
-            Tassonomia_options_str  += '<option value="CINNAMOMUM CAMPHORA">CINNAMOMUM CAMPHORA</option>';
-            Tassonomia_options_str  += '<option value="CIPRESSO DI LAWSON">CIPRESSO DI LAWSON</option>';
-            Tassonomia_options_str  += '<option value="CIPRESSUS">CIPRESSUS</option>';
-            Tassonomia_options_str  += '<option value="CIPRESSUS CASHMERIANA">CIPRESSUS CASHMERIANA</option>';
-            Tassonomia_options_str  += '<option value="CITRUS X AURANTIUM">CITRUS X AURANTIUM</option>';
-            Tassonomia_options_str  += '<option value="CRATAEGUS FERMANICA">CRATAEGUS FERMANICA</option>';
-            Tassonomia_options_str  += '<option value="CRATAEGUS GERMANICA">CRATAEGUS GERMANICA</option>';
-            Tassonomia_options_str  += '<option value="CUPRESSUS">CUPRESSUS</option>';
-            Tassonomia_options_str  += '<option value="CUPRESSUS SEMPERVIRENS">CUPRESSUS SEMPERVIRENS</option>';
-            Tassonomia_options_str  += '<option value="CUPRESSUS SEMPREVIREN">CUPRESSUS SEMPREVIREN</option>';
-            Tassonomia_options_str  += '<option value="CYCAS REVOLUTA">CYCAS REVOLUTA</option>';
-            Tassonomia_options_str  += '<option value="ERYTHRINA CRISTA-GALLI">ERYTHRINA CRISTA-GALLI</option>';
-            Tassonomia_options_str  += '<option value="EUCALYPTUS">EUCALYPTUS</option>';
-            Tassonomia_options_str  += '<option value="FRAXINUS ORNUS">FRAXINUS ORNUS</option>';
-            Tassonomia_options_str  += '<option value="GINKGO BILOBA">GINKGO BILOBA</option>';
-            Tassonomia_options_str  += '<option value="GLEDITSIA TRICANTHOS">GLEDITSIA TRICANTHOS</option>';
-            Tassonomia_options_str  += '<option value="HESPERO CIPARJR LUSITANICA">HESPERO CIPARJR LUSITANICA</option>';
-            Tassonomia_options_str  += '<option value="HESPEROCIPARYS ARIZONICA">HESPEROCIPARYS ARIZONICA</option>';
-            Tassonomia_options_str  += '<option value="HIBISCUS">HIBISCUS</option>';
-            Tassonomia_options_str  += '<option value="JACARANDA">JACARANDA</option>';
-            Tassonomia_options_str  += '<option value="LAGERSTROEMIA INDICA">LAGERSTROEMIA INDICA</option>';
-            Tassonomia_options_str  += '<option value="LAGUNARIA PATERSONIA">LAGUNARIA PATERSONIA</option>';
-            Tassonomia_options_str  += '<option value="LAURUS NOBILIS">LAURUS NOBILIS</option>';
-            Tassonomia_options_str  += '<option value="LIQUIDAMBRA STYRACIFLUA">LIQUIDAMBRA STYRACIFLUA</option>';
-            Tassonomia_options_str  += '<option value="MAGNOLIA CILINDRICA">MAGNOLIA CILINDRICA</option>';
-            Tassonomia_options_str  += '<option value="MAGNOLIA CYLINDRICA">MAGNOLIA CYLINDRICA</option>';
-            Tassonomia_options_str  += '<option value="MAGNOLIA GRANDIFLORA">MAGNOLIA GRANDIFLORA</option>';
-            Tassonomia_options_str  += '<option value="MAGNOLIA X SOULANGENA">MAGNOLIA X SOULANGENA</option>';
-            Tassonomia_options_str  += '<option value="MELIA AZEDARACH">MELIA AZEDARACH</option>';
-            Tassonomia_options_str  += '<option value="METROSIDEROS">METROSIDEROS</option>';
-            Tassonomia_options_str  += '<option value="METROSIDEROS ">METROSIDEROS </option>';
-            Tassonomia_options_str  += '<option value="METROSIDEROS EXCELSA">METROSIDEROS EXCELSA</option>';
-            Tassonomia_options_str  += '<option value="METROSIDEROS VARIEGATO">METROSIDEROS VARIEGATO</option>';
-            Tassonomia_options_str  += '<option value="NERIUM OLEANDER">NERIUM OLEANDER</option>';
-            Tassonomia_options_str  += '<option value="OLEA EUROPEA">OLEA EUROPEA</option>';
-            Tassonomia_options_str  += '<option value="PINUS HALEPENSIS">PINUS HALEPENSIS</option>';
-            Tassonomia_options_str  += '<option value="PINUS NIGRA">PINUS NIGRA</option>';
-            Tassonomia_options_str  += '<option value="PINUS PINEA">PINUS PINEA</option>';
-            Tassonomia_options_str  += '<option value="PITTOSPORUM">PITTOSPORUM</option>';
-            Tassonomia_options_str  += '<option value="PLATANUS OCCIDENTALIS">PLATANUS OCCIDENTALIS</option>';
-            Tassonomia_options_str  += '<option value="POPULUS NIGRA">POPULUS NIGRA</option>';
-            Tassonomia_options_str  += '<option value="PUNICA GRANATUM">PUNICA GRANATUM</option>';
-            Tassonomia_options_str  += '<option value="QUERCUS ILEX">QUERCUS ILEX</option>';
-            Tassonomia_options_str  += '<option value="SAMBUCO">SAMBUCO</option>';
-            Tassonomia_options_str  += '<option value="SCHINUS MOLLE">SCHINUS MOLLE</option>';
-            Tassonomia_options_str  += '<option value="THUJA OCCIDENTALIS">THUJA OCCIDENTALIS</option>';
-            Tassonomia_options_str  += '<option value="TILIA PLATYPHYLLOS">TILIA PLATYPHYLLOS</option>';
-            Tassonomia_options_str  += '<option value="WASHINGTONIA ROBUSTA">WASHINGTONIA ROBUSTA</option>';
-            Tassonomia_options_str  += '<option value="YUCCA GLORIOSA">YUCCA GLORIOSA</option>';
-            sel_Tassonomia.innerHTML = Tassonomia_options_str;
-            div_Tassonomia.appendChild(sel_Tassonomia);
-            var lab_Tassonomia = document.createElement('div');
-            lab_Tassonomia.innerHTML = 'Tassonomia';
-            lab_Tassonomia.className = 'filterlabel';
-            div_Tassonomia.appendChild(lab_Tassonomia);
-            var reset_Tassonomia = document.createElement('div');
-            reset_Tassonomia.innerHTML = 'clear filter';
-            reset_Tassonomia.className = 'filterlabel';
-            reset_Tassonomia.onclick = function() {
-                var options = document.getElementById("sel_Tassonomia").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Tassonomia.appendChild(reset_Tassonomia);
-        resetLabels([layer_Alberi_4]);
+        resetLabels([layer_Alberi_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_Alberi_4]);
+            resetLabels([layer_Alberi_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Alberi_4]);
+            resetLabels([layer_Alberi_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Alberi_4]);
+            resetLabels([layer_Alberi_2]);
         });
         </script>        
     </body>
