@@ -40,8 +40,8 @@
         <script src="js/tailDT.js"></script>
 <script src="js/nouislider.min.js"></script>
 <script src="js/wNumb.js"></script>
-        <script src="data/confinicomuneRECCO_1.js"></script>
-        <script src="data/Alberi_2.js"></script>
+        <script src="data/confinicomuneRECCO_2.js"></script>
+        <script src="data/Alberi_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -60,7 +60,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:27, minZoom:1
-        }).fitBounds([[44.35895267919062,9.135039652215193],[44.36992634056281,9.150725609455394]]);
+        }).fitBounds([[44.34376138284264,9.112454477267681],[44.3876560283314,9.175198306228486]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -154,10 +154,23 @@
             map.setMaxBounds(map.getBounds());
             map.setMinZoom(map.getZoom());
         }
-        map.createPane('pane_Esriortofoto_0');
-        map.getPane('pane_Esriortofoto_0').style.zIndex = 400;
-        var layer_Esriortofoto_0 = L.tileLayer('https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/22869/{z}/{y}/{x}', {
-            pane: 'pane_Esriortofoto_0',
+        map.createPane('pane_Mappastradale_0');
+        map.getPane('pane_Mappastradale_0').style.zIndex = 400;
+        var layer_Mappastradale_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_Mappastradale_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 1,
+            maxZoom: 27,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_Mappastradale_0;
+        map.addLayer(layer_Mappastradale_0);
+        map.createPane('pane_Mappasatellitare_1');
+        map.getPane('pane_Mappasatellitare_1').style.zIndex = 401;
+        var layer_Mappasatellitare_1 = L.tileLayer('https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/22869/{z}/{y}/{x}', {
+            pane: 'pane_Mappasatellitare_1',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
@@ -165,9 +178,9 @@
             minNativeZoom: 0,
             maxNativeZoom: 18
         });
-        layer_Esriortofoto_0;
-        map.addLayer(layer_Esriortofoto_0);
-        function pop_confinicomuneRECCO_1(feature, layer) {
+        layer_Mappasatellitare_1;
+        map.addLayer(layer_Mappasatellitare_1);
+        function pop_confinicomuneRECCO_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -180,9 +193,9 @@
             });
         }
 
-        function style_confinicomuneRECCO_1_0() {
+        function style_confinicomuneRECCO_2_0() {
             return {
-                pane: 'pane_confinicomuneRECCO_1',
+                pane: 'pane_confinicomuneRECCO_2',
                 opacity: 1,
                 color: 'rgba(228,26,28,1.0)',
                 dashArray: '',
@@ -193,21 +206,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_confinicomuneRECCO_1');
-        map.getPane('pane_confinicomuneRECCO_1').style.zIndex = 401;
-        map.getPane('pane_confinicomuneRECCO_1').style['mix-blend-mode'] = 'normal';
-        var layer_confinicomuneRECCO_1 = new L.geoJson(json_confinicomuneRECCO_1, {
+        map.createPane('pane_confinicomuneRECCO_2');
+        map.getPane('pane_confinicomuneRECCO_2').style.zIndex = 402;
+        map.getPane('pane_confinicomuneRECCO_2').style['mix-blend-mode'] = 'normal';
+        var layer_confinicomuneRECCO_2 = new L.geoJson(json_confinicomuneRECCO_2, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_confinicomuneRECCO_1',
-            layerName: 'layer_confinicomuneRECCO_1',
-            pane: 'pane_confinicomuneRECCO_1',
-            onEachFeature: pop_confinicomuneRECCO_1,
-            style: style_confinicomuneRECCO_1_0,
+            dataVar: 'json_confinicomuneRECCO_2',
+            layerName: 'layer_confinicomuneRECCO_2',
+            pane: 'pane_confinicomuneRECCO_2',
+            onEachFeature: pop_confinicomuneRECCO_2,
+            style: style_confinicomuneRECCO_2_0,
         });
-        bounds_group.addLayer(layer_confinicomuneRECCO_1);
-        map.addLayer(layer_confinicomuneRECCO_1);
-        function pop_Alberi_2(feature, layer) {
+        bounds_group.addLayer(layer_confinicomuneRECCO_2);
+        map.addLayer(layer_confinicomuneRECCO_2);
+        function pop_Alberi_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -242,9 +255,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Alberi_2_0() {
+        function style_Alberi_3_0() {
             return {
-                pane: 'pane_Alberi_2',
+                pane: 'pane_Alberi_3',
                 radius: 10.0,
                 opacity: 1,
                 color: 'rgba(61,128,53,1.0)',
@@ -258,30 +271,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Alberi_2');
-        map.getPane('pane_Alberi_2').style.zIndex = 402;
-        map.getPane('pane_Alberi_2').style['mix-blend-mode'] = 'normal';
-        var layer_Alberi_2 = new L.geoJson(json_Alberi_2, {
+        map.createPane('pane_Alberi_3');
+        map.getPane('pane_Alberi_3').style.zIndex = 403;
+        map.getPane('pane_Alberi_3').style['mix-blend-mode'] = 'normal';
+        var layer_Alberi_3 = new L.geoJson(json_Alberi_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Alberi_2',
-            layerName: 'layer_Alberi_2',
-            pane: 'pane_Alberi_2',
-            onEachFeature: pop_Alberi_2,
+            dataVar: 'json_Alberi_3',
+            layerName: 'layer_Alberi_3',
+            pane: 'pane_Alberi_3',
+            onEachFeature: pop_Alberi_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Alberi_2_0(feature));
+                return L.circleMarker(latlng, style_Alberi_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Alberi_2);
-        map.addLayer(layer_Alberi_2);
+        bounds_group.addLayer(layer_Alberi_3);
+        map.addLayer(layer_Alberi_3);
         var overlaysTree = [
-            {label: '<img src="legend/Alberi_2.png" /> Alberi', layer: layer_Alberi_2},
-            {label: '<img src="legend/confinicomuneRECCO_1.png" /> confini comune RECCO', layer: layer_confinicomuneRECCO_1},
-            {label: "Esri ortofoto", layer: layer_Esriortofoto_0, radioGroup: 'bm' },]
+            {label: '<img src="legend/Alberi_3.png" /> Alberi', layer: layer_Alberi_3},
+            {label: '<img src="legend/confinicomuneRECCO_2.png" /> confini comune RECCO', layer: layer_confinicomuneRECCO_2},
+            {label: "Mappa satellitare", layer: layer_Mappasatellitare_1},
+            {label: "Mappa stradale", layer: layer_Mappastradale_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -344,12 +358,12 @@
         });       
         setBounds();
         var i = 0;
-        layer_Alberi_2.eachLayer(function(layer) {
+        layer_Alberi_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_2'});
+            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -463,12 +477,12 @@
           this[lyr["options"]["layerName"]].clearLayers();
           this[lyr["options"]["layerName"]].addData(features);
         var i = 0;
-        layer_Alberi_2.eachLayer(function(layer) {
+        layer_Alberi_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_2'});
+            layer.bindTooltip((layer.feature.properties['Numero'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Numero']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Alberi_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -652,15 +666,15 @@
                 filterFunc();
             };
             div_Tassonomia.appendChild(reset_Tassonomia);
-        resetLabels([layer_Alberi_2]);
+        resetLabels([layer_Alberi_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_Alberi_2]);
+            resetLabels([layer_Alberi_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Alberi_2]);
+            resetLabels([layer_Alberi_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Alberi_2]);
+            resetLabels([layer_Alberi_3]);
         });
         </script>        
     </body>
